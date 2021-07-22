@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Data records go here -->
+    <record id="my_action" model="ir.actions.act_window">
+    <field name="name">Calc Month</field>
+    <field name="res_model">calc.month</field>
+    <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="My Calc" id="calc_menu"/>
+    <menuitem name="Calc" id="calc_month_menu" parent="calc_menu" action="my_action"/>
+
+</odoo>
