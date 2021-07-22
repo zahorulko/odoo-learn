@@ -8,5 +8,26 @@
     </record>
     <menuitem name="My Calc" id="calc_menu"/>
     <menuitem name="Calc" id="calc_month_menu" parent="calc_menu" action="my_action"/>
+    <!--  Form View  -->
+    <record id="library_book_view_form" model="ir.ui.view">
+    <field name="name">Calc Form Name</field>
+    <field name="model">calc.month</field>
+    <field name="arch" type="xml">
+    <form>
+    <group>
+    <group>
+    <field name="my_selection_field"/>
+    <field name="my_days"/>
+    </group>
+<!--    <group>-->
+<!--    <field name="date_release"/>-->
+<!--    </group>-->
+    </group>
+        <header>
+            <button type="object" name="calc_month" string="CALCULATE_THIS" class="btn-primary" />
+        </header>
+    </form>
+    </field>
+    </record>
 
 </odoo>

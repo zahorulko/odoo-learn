@@ -21,3 +21,30 @@ class CalcMonth(models.Model):
     )
     my_days = fields.Integer(String="Days")
 
+    @staticmethod
+    def check_month_value(par):
+        switcher = {
+            'option1': 31,
+            'option2': 28,
+            'option3': 31,
+            'option4': 30,
+            'option5': 31,
+            'option6': 30,
+            'option7': 31,
+            'option8': 31,
+            'option9': 30,
+            'option10': 31,
+            'option11': 30,
+            'option12': 31,
+        }
+        return switcher.get(par, 'Invalid month of year')
+
+    def calc_month(self):
+        print("======================================")
+        print("vartosc w month: ", self.my_selection_field)
+
+        self.my_days = self.check_month_value(self.my_selection_field)
+        print(self.my_days)
+
+
+
