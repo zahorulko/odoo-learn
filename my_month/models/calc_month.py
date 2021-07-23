@@ -17,6 +17,7 @@ class CalcMonth(models.Model):
             ('option10', 'Pazdziernik'),
             ('option11', 'Listopad'),
             ('option12', 'Grudzien'),
+            ('option13', 'Marcinowy_miesiac'),
         ], string='My Selection Field',
     )
     my_days = fields.Integer(String="Days")
@@ -44,6 +45,7 @@ class CalcMonth(models.Model):
             'option10': 31,
             'option11': 30,
             'option12': 31,
+            'option13': 64,
         }
         return switcher.get(par, 'Invalid month of year')
 
