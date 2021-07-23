@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class CalcMonth(models.Model):
@@ -17,9 +17,17 @@ class CalcMonth(models.Model):
             ('option10', 'Pazdziernik'),
             ('option11', 'Listopad'),
             ('option12', 'Grudzien'),
-        ], string='My Selection Field'
+        ], string='My Selection Field',
     )
     my_days = fields.Integer(String="Days")
+
+    @api.onchange('my_selection_field')
+    def calc_month(self):
+        print("======================================")
+        print("vartosc w month: ", self.my_selection_field)
+
+        self.my_days = self.check_month_value(self.my_selection_field)
+        print(self.my_days)
 
     @staticmethod
     def check_month_value(par):
@@ -39,12 +47,7 @@ class CalcMonth(models.Model):
         }
         return switcher.get(par, 'Invalid month of year')
 
-    def calc_month(self):
-        print("======================================")
-        print("vartosc w month: ", self.my_selection_field)
 
-        self.my_days = self.check_month_value(self.my_selection_field)
-        print(self.my_days)
 
 
 
